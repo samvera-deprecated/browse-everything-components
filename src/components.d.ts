@@ -9,6 +9,14 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface InputBytestream {
+    'location': string;
+    'mediaType': string;
+    'mtime': string;
+    'name': string;
+    'size': number;
+    'uuid': string;
+  }
   interface MyComponent {
     /**
     * The first name
@@ -28,17 +36,32 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLInputBytestreamElement extends Components.InputBytestream, HTMLStencilElement {}
+  var HTMLInputBytestreamElement: {
+    prototype: HTMLInputBytestreamElement;
+    new (): HTMLInputBytestreamElement;
+  };
+
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
   interface HTMLElementTagNameMap {
+    'input-bytestream': HTMLInputBytestreamElement;
     'my-component': HTMLMyComponentElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface InputBytestream extends JSXBase.HTMLAttributes<HTMLInputBytestreamElement> {
+    'location': string;
+    'mediaType'?: string;
+    'mtime'?: string;
+    'name': string;
+    'size'?: number;
+    'uuid': string;
+  }
   interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
     /**
     * The first name
@@ -55,6 +78,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'input-bytestream': InputBytestream;
     'my-component': MyComponent;
   }
 }
