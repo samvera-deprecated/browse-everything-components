@@ -5,34 +5,23 @@ Web Components developed for the browse-everything Gem using StencilJS.
 
 ## Getting Started
 
-To start building a new web component using Stencil, clone this repo to a new directory:
+Installing the dependencies:
 
 ```bash
-git clone https://github.com/ionic-team/stencil-component-starter.git my-component
-cd my-component
-git remote rm origin
+yarn install
 ```
 
-and run:
+Running the tests:
 
 ```bash
-npm install
-npm start
+yarn run test
 ```
 
-To build the component for production, run:
+Interactively developing the component using the dev. server:
 
 ```bash
-npm run build
+yarn run start
 ```
-
-To run the unit tests for the components, run:
-
-```bash
-npm test
-```
-
-Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
 
 ## Using this component
 
