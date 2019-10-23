@@ -21,20 +21,6 @@ export namespace Components {
     'size': number;
     'uuid': string;
   }
-  interface MyComponent {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
-  }
 }
 
 declare global {
@@ -45,15 +31,8 @@ declare global {
     prototype: HTMLInputBytestreamElement;
     new (): HTMLInputBytestreamElement;
   };
-
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  const HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
-  };
   interface HTMLElementTagNameMap {
     'input-bytestream': HTMLInputBytestreamElement;
-    'my-component': HTMLMyComponentElement;
   }
 }
 
@@ -69,24 +48,9 @@ declare namespace LocalJSX {
     'size'?: number;
     'uuid'?: string;
   }
-  interface MyComponent {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
-  }
 
   interface IntrinsicElements {
     'input-bytestream': InputBytestream;
-    'my-component': MyComponent;
   }
 }
 
@@ -97,7 +61,6 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'input-bytestream': LocalJSX.InputBytestream & JSXBase.HTMLAttributes<HTMLInputBytestreamElement>;
-      'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
   }
 }
