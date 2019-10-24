@@ -10,6 +10,12 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface ButtonAuth {
+    'classes': string;
+    'disabled': boolean;
+    'formId': string;
+    'href': string;
+  }
   interface InputBytestream {
     'checked': boolean;
     'classes': string;
@@ -40,6 +46,12 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLButtonAuthElement extends Components.ButtonAuth, HTMLStencilElement {}
+  const HTMLButtonAuthElement: {
+    prototype: HTMLButtonAuthElement;
+    new (): HTMLButtonAuthElement;
+  };
+
   interface HTMLInputBytestreamElement extends Components.InputBytestream, HTMLStencilElement {}
   const HTMLInputBytestreamElement: {
     prototype: HTMLInputBytestreamElement;
@@ -52,12 +64,19 @@ declare global {
     new (): HTMLMyComponentElement;
   };
   interface HTMLElementTagNameMap {
+    'button-auth': HTMLButtonAuthElement;
     'input-bytestream': HTMLInputBytestreamElement;
     'my-component': HTMLMyComponentElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface ButtonAuth {
+    'classes'?: string;
+    'disabled'?: boolean;
+    'formId'?: string;
+    'href'?: string;
+  }
   interface InputBytestream {
     'checked'?: boolean;
     'classes'?: string;
@@ -85,6 +104,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'button-auth': ButtonAuth;
     'input-bytestream': InputBytestream;
     'my-component': MyComponent;
   }
@@ -96,6 +116,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'button-auth': LocalJSX.ButtonAuth & JSXBase.HTMLAttributes<HTMLButtonAuthElement>;
       'input-bytestream': LocalJSX.InputBytestream & JSXBase.HTMLAttributes<HTMLInputBytestreamElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
